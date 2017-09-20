@@ -6,3 +6,6 @@ Assume each EVENT_STAFF can serve multiple EVENT at the same time.
 
 3. 假设员工类型是固定的
 Assume that there are 8 employee types belong to the EMPLOYEE. They are HOUSEKEEPING_STAFF, RECEPTIONIST, DINING_STAFF, CONCIENGEM, MANAGER, ACCOUNTANT, TECH_SUPPORTER and CATERING.
+
+4. 假设一个员工可能持有多个证书
+Assume that some staff could have multiple licenses.
