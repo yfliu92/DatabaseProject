@@ -1,0 +1,8 @@
+1.假设 每个event_staff都有固定的一个on_call_speaker
+Assume that every EVENT_STAFF has a fixed ON_CALL_SPEAKER
+
+2. 一个event_staff可以同时服务多个event
+Assume each EVENT_STAFF can serve multiple EVENT at the same time.
+
+3. 假设员工类型是固定的
+Assume that there are 8 employee types belong to the EMPLOYEE. They are HOUSEKEEPING_STAFF, RECEPTIONIST, DINING_STAFF, CONCIENGEM, MANAGER, ACCOUNTANT, TECH_SUPPORTER and CATERING.
