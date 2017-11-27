@@ -6,3 +6,8 @@ A database project
 
 > ## Phase2
 * EER Mapping
+
+> ## Phase3
+* Build tables
+* Build views
+* Implement some queries
