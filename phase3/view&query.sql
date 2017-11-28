@@ -130,10 +130,40 @@ WHERE
 
 -- 2.3.8. Retrieve the highest amount of bill of the events helped by the most popular event manager.
 
+SELECT *
+FROM EVENT E
+WHERE E.ID IN (
+  SELECT *
+  FROM (
+    SELECT EB.EVENT_ID
+    FROM POPULAR_EVENT_MANAGER P, SERVE S, EVENT_BILL EB
+    WHERE P.EMPLOYEE_ID = S.ES_ID AND S.EVENT_ID = EB.EVENT_ID
+    ORDER BY EB.AMOUNT DESC
+  )
+  WHERE ROWNUM <= 1
+);
+
 -- 2.3.9. Retrieve information of the event that each of its organizers pays the highest amount for the event (suppose organizers of the same event pay the bill evenly).
+
+
+SELECT E.*
+FROM EVENT_BILL E,
+    (
+        SELECT COUNT(EP.ID) AS C, EP.ID AS ID
+        FROM EB_PAYMENT EP
+        GROUP BY EP.ID
+    ) RES
+WHERE RES.ID=E.ID
+ORDER BY E.AMOUNT/RES.C DESC;
+
 
 -- 2.3.10. Retrieve the date and time the most popular room was last checked in.
 
-
-
-
+SELECT *
+FROM (
+  SELECT H.CHECK_IN_DATE_TIME
+  FROM POPULAR_ROOMS P, HELP_CHECK_IN H
+  WHERE P.ROOM# = H.ROOM#
+  ORDER BY H.CHECK_IN_DATE_TIME DESC
+)
+WHERE ROWNUM <= 1;
